@@ -6,17 +6,18 @@ package MultiThreading;
 
 public class Q12 implements Runnable {
     public void run(){
-        for(int i=1; i<=10; i++){
-            if(i==6){
+        synchronized (this){
+        for(int i=1; i<=10; i++) {
+            if (i == 6) {
                 try {
-                Thread.sleep(5000);}
-                catch (InterruptedException e){
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
 
                 }
-            }
-            else {
+            } else {
                 System.out.println(i);
             }
+        }
         }
     }
 
